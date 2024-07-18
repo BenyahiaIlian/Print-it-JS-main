@@ -17,12 +17,6 @@ const slides = [
 	}
 ];
 
-// Créé des constantes pour récupérer les éléments HTML avec lesquels tu vas travailler
-// const arrowLeft
-// const arrowRight
-// const img
-// const Tagline
-// const dots
 
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
@@ -30,18 +24,8 @@ const bannerImg = document.querySelector(".banner-img");
 const bannerText = document.querySelector("#banner p");
 const dots = document.querySelectorAll(".dot");
 
-// Créer une variable avec un compteur à 0
 
 let currentIndex = 0;
-
-// Créer une fonction pour le changement d'image
-// Modifier l'attribut src en fonction du tableau
-// Intégrer la tagline dans la balise <p>
-// Créer un événement au click sur la flèche de droite
-// Mettre le compteur en positif : incrémente de +1 un objet
-// Condition qui indique que si on arrive à la fin du tableau, on revient à 0
-// Appeler la fonction pour le changement d'image
-
 
 function onArrowLeftClick() {
 	currentIndex = (currentIndex > 0)? currentIndex - 1 : slides.length -1;
