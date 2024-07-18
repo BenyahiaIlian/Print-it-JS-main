@@ -24,9 +24,6 @@ const slides = [
 // const Tagline
 // const dots
 
-
-
-
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const bannerImg = document.querySelector(".banner-img");
@@ -47,12 +44,12 @@ let currentIndex = 0;
 
 
 function onArrowLeftClick() {
-	currentIndex= (currentIndex > 0)? currentIndex - 1 :slides.length -1;
+	currentIndex = (currentIndex > 0)? currentIndex - 1 : slides.length -1;
 }
 
 
 function onArrowRightClick() {
-	currentIndex= (currentIndex > 0)? currentIndex - 1 :slides.length -1;
+	currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
 }
 
 
@@ -62,25 +59,19 @@ function updateSlide(index) {
 	bannerText.innerHTML = slide.tagLine;
 }
 
+function updateDot(index){
+	dots.forEach(dot => dot.classList.remove('dot_selected'));
+	dots[index].classList.add('dot_selected');
+}
 
 arrowLeft.addEventListener("click", function() {
-	currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
+	onArrowLeftClick();
 	updateSlide(currentIndex);
+	updateDot(currentIndex);
 });
 
 arrowRight.addEventListener("click", function() {
-	currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
+	onArrowRightClick();
 	updateSlide(currentIndex);
+	updateDot(currentIndex);
 });
-
-
-
-dots.addEventListener("click", function(){
-	currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-	updatedots(currentIndex);
-})
-
-dots.addEventListener("click", function(){
-	currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-	updatedots(currentIndex);
-})
